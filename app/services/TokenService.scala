@@ -28,7 +28,4 @@ class TokenService(secret: String) {
     s"$h.$p.$s"
   }
 
-
-  def decode(encoded: String): (JsObject, JsObject) = ???
-
 }
