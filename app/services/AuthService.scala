@@ -11,10 +11,10 @@ trait AuthService {
 
 class MockAuthService extends AuthService {
   def auth(user: String, password: String): Future[JsObject] = Future {
-    if (user == "test" && password == "test") {
+    if (password == "1234") {
       Json.obj(
         "sub" -> "1234567890",
-        "name" -> "John Doe",
+        "name" -> user,
         "admin" -> true
       )
     } else {
