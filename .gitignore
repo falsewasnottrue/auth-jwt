@@ -1,0 +1,69 @@
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+/bin
+
+.*
+*.log
+
+### Scala ###
+*.sc
+
+
+### Play! ###
+project/project
+project/target
+target
+tmp
+public/*
+logs
+
+
+### Git ###
+!.gitignore
+*.orig
+.git/
+
+
+### UI ###
+ui/src/main/com/springer/nemo/platform/assets/components
+ui/src/main/com/springer/nemo/platform/assets/styles/grunticon
+node_modules
+npm-debug.log
+npm
+!.npmrc
+
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+.idea_modules/
+atlassian-ide-plugin.xml
+
+
+### Eclipse ###
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+/bin
+/lib/
+
