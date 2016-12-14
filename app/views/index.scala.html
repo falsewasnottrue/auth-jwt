@@ -1,7 +1,4 @@
-@import helper._
-@import domain.AuthData
-
-@(authForm: Form[AuthData])(implicit messages: Messages)
+@()
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +21,15 @@
                 xhr.onreadystatechange = function() {
                     if (this.readyState == 4) {
                         var div = document.createElement('div');
-                        div.textContent = "Sent: " + JSON.stringify(creds) + " Received: " + this.status + ": " + this.body;
+                        div.textContent = "Sent: " + JSON.stringify(creds) + " Received: " + this.status + ": " + this.responseText;
 
                         result.appendChild(div);
                     }
                 };
 
                 xhr.open('POST', '/login', true);
-                xhr.send(creds);
+                xhr.setRequestHeader('Content-type', 'application/json');
+                xhr.send(JSON.stringify(creds));
             };
         </script>
     </head>
