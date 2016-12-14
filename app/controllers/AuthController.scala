@@ -7,8 +7,8 @@ import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.{Action, Controller}
 import services.{MockAuthService, TokenService}
 
-
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 @Singleton
 class AuthController extends Controller {
@@ -19,7 +19,7 @@ class AuthController extends Controller {
   val tokenService = new TokenService("secret")
   val authService = new MockAuthService
 
-  def authenticate() = Action.async { implicit request =>
+  def login() = Action.async { implicit request =>
     val form = authForm.bindFromRequest()
     val user = form.data("user")
     val password = form.data("pass")
@@ -34,5 +34,9 @@ class AuthController extends Controller {
     } recover { case exception =>
       Unauthorized
     }
+  }
+
+  def logout = Action.async {
+    Future.successful(Ok)
   }
 }
