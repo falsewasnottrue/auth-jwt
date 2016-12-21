@@ -10,7 +10,7 @@ import play.api.libs.json.JsObject
 class TokenService(secret: String) {
 
   val charset = StandardCharsets.UTF_8
-  val algorithm = "HmacSHA256" // TODO read from header
+  val algorithm = "HmacSHA256"
   val mac: Mac = Mac.getInstance(algorithm)
   val secretKey: SecretKeySpec = new SecretKeySpec(secret.getBytes, algorithm)
 
